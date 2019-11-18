@@ -4,3 +4,5 @@
 
 /.vs
 /RuntimeGraphicsInfo/RuntimeGraphicsInfo.vcxproj.user
+/RuntimeGraphicsInfo/bin
+/RuntimeGraphicsInfo/obj
