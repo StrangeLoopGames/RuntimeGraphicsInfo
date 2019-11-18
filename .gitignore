@@ -6,3 +6,5 @@
 /RuntimeGraphicsInfo/RuntimeGraphicsInfo.vcxproj.user
 /RuntimeGraphicsInfo/bin
 /RuntimeGraphicsInfo/obj
+/RuntimeGraphicsInfo.Plugin/bin
+/RuntimeGraphicsInfo.Plugin/obj
