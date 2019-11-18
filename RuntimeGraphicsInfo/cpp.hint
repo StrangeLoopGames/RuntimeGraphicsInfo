@@ -1,0 +1,2 @@
+#define RUNTIMEGRAPHICSINFO_API __declspec(dllexport)
+#define RUNTIMEGRAPHICSINFO_API __declspec(dllimport)
