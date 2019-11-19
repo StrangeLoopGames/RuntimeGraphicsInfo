@@ -8,3 +8,5 @@
 /RuntimeGraphicsInfo/obj
 /RuntimeGraphicsInfo.Plugin/bin
 /RuntimeGraphicsInfo.Plugin/obj
+/Runtime/Plugins/*.lib
+/Runtime/Plugins/*.exp
