@@ -10,3 +10,4 @@
 /RuntimeGraphicsInfo.Plugin/obj
 /Runtime/Plugins/*.lib
 /Runtime/Plugins/*.exp
+/Runtime/Plugins/*.pdb
