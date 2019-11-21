@@ -3,7 +3,12 @@
     "references": [
     ],
     "optionalUnityReferences": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "WindowsStandalone32",
+        "WindowsStandalone64",
+        "LinuxStandalone64",
+        "macOSStandalone"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
     "overrideReferences": false,
