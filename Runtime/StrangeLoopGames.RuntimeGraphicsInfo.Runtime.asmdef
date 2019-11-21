@@ -8,7 +8,7 @@
         "WindowsStandalone32",
         "WindowsStandalone64",
         "LinuxStandalone64",
-        "macOSStandalone",
+        "macOSStandalone"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
