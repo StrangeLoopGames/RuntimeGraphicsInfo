@@ -82,13 +82,13 @@
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>RuntimeGraphicsInfo_x86</TargetName>
-    <OutDir>$(SolutionDir)Runtime\Plugins\</OutDir>
+    <TargetName>RuntimeGraphicsInfoNative</TargetName>
+    <OutDir>$(SolutionDir)Runtime\Plugins\x86\</OutDir>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetName>RuntimeGraphicsInfo_x64</TargetName>
-    <OutDir>$(SolutionDir)Runtime\Plugins\</OutDir>
+    <TargetName>RuntimeGraphicsInfoNative</TargetName>
+    <OutDir>$(SolutionDir)Runtime\Plugins\x86_64\</OutDir>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -1,13 +1,10 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
+﻿
 /.vs
 /RuntimeGraphicsInfo/RuntimeGraphicsInfo.vcxproj.user
 /RuntimeGraphicsInfo/bin
 /RuntimeGraphicsInfo/obj
 /RuntimeGraphicsInfo.Plugin/bin
 /RuntimeGraphicsInfo.Plugin/obj
-/Runtime/Plugins/*.lib
-/Runtime/Plugins/*.exp
-/Runtime/Plugins/*.pdb
+/Runtime/Plugins/*/*.lib
+/Runtime/Plugins/*/*.exp
+/Runtime/Plugins/*/*.pdb

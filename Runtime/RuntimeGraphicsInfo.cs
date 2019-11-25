@@ -6,13 +6,13 @@ using System.Runtime.InteropServices;
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
 internal class RuntimeGraphicsInfoInternal
 {
-    [DllImport("RuntimeGraphicsInfo")]
+    [DllImport("RuntimeGraphicsInfoNative")]
     public static extern ulong GetDedicatedVideoMemory();
 
-    [DllImport("RuntimeGraphicsInfo")]
+    [DllImport("RuntimeGraphicsInfoNative")]
     public static extern ulong GetDedicatedSystemMemory();
 
-    [DllImport("RuntimeGraphicsInfo")]
+    [DllImport("RuntimeGraphicsInfoNative")]
     public static extern ulong GetSharedSystemMemory();
 }
 #else
