@@ -1,6 +1,6 @@
 ﻿
 /.vs
-/RuntimeGraphicsInfo/RuntimeGraphicsInfo.vcxproj.user
+/RuntimeGraphicsInfo.Plugin/RuntimeGraphicsInfo.Plugin.vcxproj.user
 /RuntimeGraphicsInfo/bin
 /RuntimeGraphicsInfo/obj
 /RuntimeGraphicsInfo.Plugin/bin
