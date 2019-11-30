@@ -1,45 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="PluginAPI">
+      <UniqueIdentifier>{8eab5d64-22ec-4c5e-b460-810715f49151}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="PluginAPI\LICENSE.md">
+      <Filter>PluginAPI</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RuntimeGraphicsInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClCompile Include="DirectX11.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="RuntimeGraphicsInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RuntimeGraphicsInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DirectX11.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="RuntimeGraphicsInfo.h" />
+    <ClInclude Include="PluginAPI\IUnityEventQueue.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityGraphics.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityGraphicsD3D11.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityGraphicsD3D12.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityGraphicsMetal.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityGraphicsVulkan.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityInterface.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityProfilerCallbacks.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityRenderingExtensions.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginAPI\IUnityShaderCompilerAccess.h">
+      <Filter>PluginAPI</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,11 +18,11 @@ internal class RuntimeGraphicsInfoInternal
 #else
 internal class RuntimeGraphicsInfoInternal
 {
-    public static ulong GetDedicatedVideoMemory() { return -1; }
+    public static ulong GetDedicatedVideoMemory() { return ulong.MaxValue; }
 
-    public static ulong GetDedicatedSystemMemory() { return -1; }
+    public static ulong GetDedicatedSystemMemory() { return ulong.MaxValue; }
 
-    public static ulong GetSharedSystemMemory() { return -1; }
+    public static ulong GetSharedSystemMemory() { return ulong.MaxValue; }
 }
 #endif
 
