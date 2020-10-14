@@ -1,5 +1,3 @@
-
-
 #include "pch.h"
 #include <d3d11.h>
 
@@ -38,7 +36,7 @@ RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface)
     pDXGIDevice->GetAdapter(&pDXGIAdapter);
 
     DXGI_ADAPTER_DESC adapterDesc;
-    pDXGIAdapter->GetDesc(&adapterDesc);
+    pDXGIAdapter->GetDesc(&adapterDesc);    
 
     pDXGIDevice->Release();
 
