@@ -19,14 +19,14 @@ struct RunTimeGraphicsMemoryInfo
     uint64_t DedicatedVideoMemory;
     uint64_t DedicatedSystemMemory;
     uint64_t SharedSystemMemory;
-    uint16_t MaxTessellationLevel;
+    uint16_t MaxTessellationFactor;
 
 public:
     RunTimeGraphicsMemoryInfo()
         : DedicatedVideoMemory(-1)
         , DedicatedSystemMemory(-1)
         , SharedSystemMemory(-1)
-        , MaxTessellationLevel(64)
+        , MaxTessellationFactor(64)
     {
     }
 };

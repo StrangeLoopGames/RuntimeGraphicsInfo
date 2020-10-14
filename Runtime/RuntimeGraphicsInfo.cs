@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
 internal class RuntimeGraphicsInfoInternal
 {
     [DllImport("RuntimeGraphicsInfoNative")]
@@ -13,9 +13,11 @@ internal class RuntimeGraphicsInfoInternal
     [DllImport("RuntimeGraphicsInfoNative")]
     public static extern ulong GetSharedSystemMemory();
 
-    public static ushort GetMaxTessellationFactor() { return 64; }
+    [DllImport("RuntimeGraphicsInfoNative")]
+    public static ushort GetMaxTessellationFactor();
 
-    public static ushort SetMaxTessellationLevel(ushort factor) { return 64; }
+    [DllImport("RuntimeGraphicsInfoNative")]
+    public static ushort SetMaxTessellationFactor(ushort factor);
 }
 #else
 internal class RuntimeGraphicsInfoInternal

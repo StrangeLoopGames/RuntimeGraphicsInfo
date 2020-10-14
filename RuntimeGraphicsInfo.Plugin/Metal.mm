@@ -5,6 +5,11 @@
 #if SUPPORT_METAL
 #include "IUnityGraphicsMetal.h"
 
+unsigned short SetMaxTessellationFactorMetal(IUnityInterfaces* pUnityInterface, unsigned short tessellationLevel)
+{
+    return 16;
+}
+
 RunTimeGraphicsMemoryInfo GetDeviceStatsMetal(IUnityInterfaces* pUnityInterface)
 {
     auto stats = RunTimeGraphicsMemoryInfo();
