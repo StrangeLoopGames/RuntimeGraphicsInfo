@@ -13,14 +13,22 @@ add_library(RuntimeGraphicsInfoNative SHARED
         PluginAPI/IUnityShaderCompilerAccess.h
         framework.h
         RuntimeGraphicsInfo.cpp
-        RuntimeGraphicsInfo.h)
+        RuntimeGraphicsInfo.h
+        DirectX11.cpp
+        Metal.cpp
+)
 
-target_precompile_headers(RuntimeGraphicsInfoNative PRIVATE pch.h)
+if (APPLE)
+    target_precompile_headers(RuntimeGraphicsInfoNative PRIVATE $<$<COMPILE_LANGUAGE:OBJC>:pch.h>)
+else()
+    target_precompile_headers(RuntimeGraphicsInfoNative PRIVATE pch.h)
+endif()
 
 if (WIN32)
-    target_sources(RuntimeGraphicsInfoNative PRIVATE DirectX11.cpp dllmain.cpp)
+    target_sources(RuntimeGraphicsInfoNative PRIVATE dllmain.cpp)
 endif()
 
 if (APPLE)
-    target_sources(RuntimeGraphicsInfoNative PRIVATE Metal.cpp)
+    set(CMAKE_C_FLAGS "-x objective-c")
+    target_sources(RuntimeGraphicsInfoNative PRIVATE Metal.mm)
 endif()

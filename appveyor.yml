@@ -1,7 +1,7 @@
 image:
+  - macOS
   - Visual Studio 2019
   # - Ubuntu
-  - macOS
 
 platform:
   - x86
@@ -40,12 +40,14 @@ for:
     environment:
       ARTIFACT_PATH: 'RuntimeGraphicsInfoNative.dylib'
     after_build:
-      - mv RuntimeGraphicsInfo.Plugin\libRuntimeGraphicsInfoNative.dylib $ARTIFACT_PATH
+      - mv RuntimeGraphicsInfo.Plugin/libRuntimeGraphicsInfoNative.dylib $ARTIFACT_PATH
   - matrix:
       only:
         - image: Ubuntu
     environment:
       ARTIFACT_PATH: 'libRuntimeGraphicsInfoNative.so'
+    after_build:
+      - mv RuntimeGraphicsInfo.Plugin/libRuntimeGraphicsInfoNative.so $ARTIFACT_PATH
 
 before_build:
   - cmd: cmake . -G "Visual Studio 16 2019" -A %ARCH%

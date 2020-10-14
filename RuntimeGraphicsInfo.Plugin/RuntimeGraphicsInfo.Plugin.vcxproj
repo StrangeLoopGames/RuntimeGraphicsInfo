@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectX11.cpp" />
+    <ClCompile Include="Metal.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="RuntimeGraphicsInfo.cpp" />

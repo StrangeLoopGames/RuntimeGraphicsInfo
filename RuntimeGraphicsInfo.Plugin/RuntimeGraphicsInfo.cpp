@@ -2,7 +2,6 @@
 //
 
 #include "pch.h"
-#include "framework.h"
 #include "RuntimeGraphicsInfo.h"
 
 #include "IUnityInterface.h"
@@ -12,10 +11,11 @@ static void UNITY_INTERFACE_API
 OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType);
 
 RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface);
+RunTimeGraphicsMemoryInfo GetDeviceStatsMetal(IUnityInterfaces* pUnityInterface);
 
 
-static IUnityInterfaces* s_UnityInterfaces = NULL;
-static IUnityGraphics* s_Graphics = NULL;
+static IUnityInterfaces* s_UnityInterfaces = nullptr;
+static IUnityGraphics* s_Graphics = nullptr;
 static UnityGfxRenderer s_RendererType = UnityGfxRenderer::kUnityGfxRendererNull;
 static RunTimeGraphicsMemoryInfo s_Stats;
 
@@ -46,10 +46,13 @@ RunTimeGraphicsMemoryInfo GetStatsForDevice(UnityGfxRenderer renderer)
     {
     case UnityGfxRenderer::kUnityGfxRendererD3D11:
         return GetDeviceStatsD3D11(s_UnityInterfaces);
-        break;
+    case UnityGfxRenderer::kUnityGfxRendererMetal:
+        return GetDeviceStatsMetal(s_UnityInterfaces);
+    case UnityGfxRenderer::kUnityGfxRendererVulkan:
+        return {};
+    default:
+        return {};
     }
-
-    return RunTimeGraphicsMemoryInfo();
 }
 
 static void UNITY_INTERFACE_API
