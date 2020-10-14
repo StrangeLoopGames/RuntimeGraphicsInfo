@@ -15,8 +15,12 @@ add_library(RuntimeGraphicsInfoNative SHARED
         RuntimeGraphicsInfo.cpp
         RuntimeGraphicsInfo.h)
 
+target_precompile_headers(RuntimeGraphicsInfoNative PRIVATE pch.h)
+
 if (WIN32)
     target_sources(RuntimeGraphicsInfoNative PRIVATE DirectX11.cpp dllmain.cpp)
 endif()
 
-target_precompile_headers(RuntimeGraphicsInfoNative PRIVATE pch.h)
+if (APPLE)
+    target_sources(RuntimeGraphicsInfoNative PRIVATE Metal.cpp)
+endif()
