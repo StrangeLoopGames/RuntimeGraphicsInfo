@@ -8,3 +8,5 @@
 /Runtime/Plugins/*/*.lib
 /Runtime/Plugins/*/*.exp
 /Runtime/Plugins/*/*.pdb
+/cmake-build-debug
+/cmake-build-release
