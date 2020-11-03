@@ -11,7 +11,8 @@ static void UNITY_INTERFACE_API
 OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType);
 
 RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface);
-RunTimeGraphicsMemoryInfo GetDeviceStatsMetal(IUnityInterfaces* pUnityInterface);
+void InitMetal(IUnityInterfaces* pUnityInterfaces);
+RunTimeGraphicsMemoryInfo GetDeviceStatsMetal();
 unsigned short SetMaxTessellationFactorMetal(IUnityInterfaces* pUnityInterface, unsigned short tessellationLevel);
 
 
@@ -48,7 +49,7 @@ RunTimeGraphicsMemoryInfo GetStatsForDevice(UnityGfxRenderer renderer)
     case UnityGfxRenderer::kUnityGfxRendererD3D11:
         return GetDeviceStatsD3D11(s_UnityInterfaces);
     case UnityGfxRenderer::kUnityGfxRendererMetal:
-        return GetDeviceStatsMetal(s_UnityInterfaces);
+        return GetDeviceStatsMetal();
     case UnityGfxRenderer::kUnityGfxRendererVulkan:
         return {};
     default:
@@ -75,6 +76,8 @@ OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType)
     case UnityGfxDeviceEventType::kUnityGfxDeviceEventInitialize:
     {
         s_RendererType = s_Graphics->GetRenderer();
+        if (s_RendererType == UnityGfxRenderer::kUnityGfxRendererMetal)
+            InitMetal(s_UnityInterfaces);
 
         s_Stats = GetStatsForDevice(s_RendererType);
 

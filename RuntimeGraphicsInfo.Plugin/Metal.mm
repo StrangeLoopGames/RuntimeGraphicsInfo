@@ -4,29 +4,31 @@
 
 #if SUPPORT_METAL
 #include "IUnityGraphicsMetal.h"
+#import <Metal/Metal.h>
+
+IUnityGraphicsMetalV1* g_MetalGraphics;
 
 unsigned short SetMaxTessellationFactorMetal(IUnityInterfaces* pUnityInterface, unsigned short tessellationLevel)
 {
     return 16;
 }
 
-RunTimeGraphicsMemoryInfo GetDeviceStatsMetal(IUnityInterfaces* pUnityInterface)
+void InitMetal(IUnityInterfaces* pUnityInterfaces)
+{
+    g_MetalGraphics = pUnityInterfaces->Get<IUnityGraphicsMetalV1>();
+}
+
+RunTimeGraphicsMemoryInfo GetDeviceStatsMetal()
 {
     auto stats = RunTimeGraphicsMemoryInfo();
-
-    auto pUnityGraphicsMetal = pUnityInterface->Get<IUnityGraphicsMetalV1>();
-    if (!pUnityGraphicsMetal)
-    {
-        // Log
-        return stats;
-    }
-
-    auto device = pUnityGraphicsMetal->MetalDevice();
+    id<MTLDevice> device = g_MetalGraphics->MetalDevice();
     if (!device)
     {
         // Log
         return stats;
     }
+
+    stats.DedicatedSystemMemory = [device recommendedMaxWorkingSetSize];
 
     /*IDXGIDevice* pDXGIDevice = nullptr;
     HRESULT hr = pD3dDevice->QueryInterface(__uuidof(IDXGIDevice), (void**)&pDXGIDevice);

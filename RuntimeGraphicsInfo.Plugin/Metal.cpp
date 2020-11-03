@@ -3,7 +3,8 @@
 #include "IUnityInterface.h"
 
 #if !SUPPORT_METAL
-RunTimeGraphicsMemoryInfo GetDeviceStatsMetal(IUnityInterfaces* pUnityInterface) { return {}; }
+void InitMetal(IUnityInterfaces*) { }
+RunTimeGraphicsMemoryInfo GetDeviceStatsMetal() { return {}; }
 
 unsigned short SetMaxTessellationFactorMetal(IUnityInterfaces* pUnityInterface, unsigned short tessellationLevel) { return 16; }
 #endif

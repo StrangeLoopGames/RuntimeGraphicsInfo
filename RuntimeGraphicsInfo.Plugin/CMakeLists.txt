@@ -26,9 +26,12 @@ endif()
 
 if (WIN32)
     target_sources(RuntimeGraphicsInfoNative PRIVATE dllmain.cpp)
+    add_compile_definitions(SUPPORT_VULKAN=1)
 endif()
 
 if (APPLE)
     set(CMAKE_C_FLAGS "-x objective-c")
     target_sources(RuntimeGraphicsInfoNative PRIVATE Metal.mm)
+elseif(UNIX)
+    add_compile_definitions(UNITY_LINUX=1 SUPPORT_VULKAN=1)
 endif()
