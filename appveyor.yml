@@ -1,7 +1,7 @@
 image:
   - macOS
   - Visual Studio 2019
-  # - Ubuntu
+  - Ubuntu
 
 platform:
   - x86
@@ -39,6 +39,8 @@ for:
         - image: macOS
     environment:
       ARTIFACT_PATH: 'libRuntimeGraphicsInfoNative.dylib'
+    after_build:
+      - mv RuntimeGraphicsInfo.Plugin/libRuntimeGraphicsInfoNative.dylib $ARTIFACT_PATH
   - matrix:
       only:
         - image: Ubuntu

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX || UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
 internal class RuntimeGraphicsInfoInternal
 {
     [DllImport("RuntimeGraphicsInfoNative")]
