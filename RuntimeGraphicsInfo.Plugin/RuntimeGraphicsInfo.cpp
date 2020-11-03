@@ -99,11 +99,6 @@ OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType)
     }
 }
 
-extern "C" uint16_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API SetMaxTessellationFactor(uint16_t factor)
-{
-    return SetMaxTessellationFactor(s_RendererType, factor);
-}
-
 extern "C" uint64_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API GetDedicatedVideoMemory()
 {
     return s_Stats.DedicatedVideoMemory;
@@ -122,4 +117,9 @@ extern "C" uint64_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API GetSharedSystemMe
 extern "C" uint64_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API GetMaxTessellationFactor()
 {
     return s_Stats.MaxTessellationFactor;
+}
+
+extern "C" uint16_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API SetMaxTessellationFactor(uint16_t factor)
+{
+    return SetMaxTessellationFactor(s_RendererType, factor);
 }

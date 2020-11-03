@@ -14,10 +14,10 @@ internal class RuntimeGraphicsInfoInternal
     public static extern ulong GetSharedSystemMemory();
 
     [DllImport("RuntimeGraphicsInfoNative")]
-    public static ushort GetMaxTessellationFactor();
+    public static extern ushort GetMaxTessellationFactor();
 
     [DllImport("RuntimeGraphicsInfoNative")]
-    public static ushort SetMaxTessellationFactor(ushort factor);
+    public static extern ushort SetMaxTessellationFactor(ushort factor);
 }
 #else
 internal class RuntimeGraphicsInfoInternal
@@ -46,8 +46,8 @@ public class RuntimeGraphicsInfo
     public static ulong GetSharedSystemMemory() => RuntimeGraphicsInfoInternal.GetSharedSystemMemory();
 
     /// <summary> Returns the max tessellation factor supported/activated in the Graphics API. </summary>
-    public static ushort GetMaxTessellationFactor() => RuntimeGraphicsInfoInternal.GetMaxTessellationLevel();
+    public static ushort GetMaxTessellationFactor() => RuntimeGraphicsInfoInternal.GetMaxTessellationFactor();
 
     /// <summary> Tries to set the max tessellation factor (if supported by Graphics API), returns value after modification (it may be less than or greater than requested). </summary>
-    public static uint SetMaxTessellationFactor(uint factor) => RuntimeGraphicsInfoInternal.GetMaxTessellationLevel();
+    public static uint SetMaxTessellationFactor(uint factor) => RuntimeGraphicsInfoInternal.GetMaxTessellationFactor();
 }
