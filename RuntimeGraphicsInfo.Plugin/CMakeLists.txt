@@ -31,7 +31,12 @@ endif()
 
 if (APPLE)
     set(CMAKE_C_FLAGS "-x objective-c")
+    add_compile_options("-dynamiclib")
     target_sources(RuntimeGraphicsInfoNative PRIVATE Metal.mm)
 elseif(UNIX)
     add_compile_definitions(UNITY_LINUX=1 SUPPORT_VULKAN=1)
+endif()
+
+if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+    set(CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS} -Wl,-undefined,dynamic_lookup")
 endif()
