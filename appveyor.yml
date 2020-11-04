@@ -1,0 +1,61 @@
+image:
+  - macOS
+  - Visual Studio 2019
+  - Ubuntu
+
+platform:
+  - x86
+  - x64
+configuration: Release
+
+matrix:
+  exclude:
+    - image: Ubuntu
+      platform: x86
+    - image: macOS
+      platform: x86
+
+for:
+  - matrix:
+      only:
+        - image: Visual Studio 2019
+          platform: x64
+    environment:
+      ARCH: x64
+      ARTIFACT_PATH: 'RuntimeGraphicsInfoNative.dll'
+    after_build:
+      - move RuntimeGraphicsInfo.Plugin\Release\RuntimeGraphicsInfoNative.dll %ARTIFACT_PATH%
+  - matrix:
+      only:
+        - image: Visual Studio 2019
+          platform: x86
+    environment:
+      ARCH: Win32
+      ARTIFACT_PATH: 'RuntimeGraphicsInfoNative.dll'
+    after_build:
+      - move RuntimeGraphicsInfo.Plugin\Release\RuntimeGraphicsInfoNative.dll %ARTIFACT_PATH%
+  - matrix:
+      only:
+        - image: macOS
+    environment:
+      ARTIFACT_PATH: 'libRuntimeGraphicsInfoNative.dylib'
+    after_build:
+      - mv RuntimeGraphicsInfo.Plugin/libRuntimeGraphicsInfoNative.dylib $ARTIFACT_PATH
+  - matrix:
+      only:
+        - image: Ubuntu
+    environment:
+      ARTIFACT_PATH: 'libRuntimeGraphicsInfoNative.so'
+    after_build:
+      - mv RuntimeGraphicsInfo.Plugin/libRuntimeGraphicsInfoNative.so $ARTIFACT_PATH
+
+before_build:
+  - cmd: cmake . -G "Visual Studio 16 2019" -A %ARCH%
+  - sh: cmake . -DCMAKE_BUILD_TYPE=Release
+
+build_script:
+  - cmake --build . --config Release
+
+artifacts:
+  - path: '$(ARTIFACT_PATH)'
+    name: Releases

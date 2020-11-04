@@ -1,4 +1,4 @@
-﻿
+﻿/.idea
 /.vs
 /RuntimeGraphicsInfo.Plugin/RuntimeGraphicsInfo.Plugin.vcxproj.user
 /RuntimeGraphicsInfo/bin
@@ -8,3 +8,6 @@
 /Runtime/Plugins/*/*.lib
 /Runtime/Plugins/*/*.exp
 /Runtime/Plugins/*/*.pdb
+/cmake-build-debug
+/cmake-build-release
+*.meta

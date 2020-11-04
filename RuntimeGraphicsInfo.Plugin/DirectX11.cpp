@@ -1,10 +1,11 @@
-
-
 #include "pch.h"
-#include <d3d11.h>
 
 #include "RuntimeGraphicsInfo.h"
 #include "IUnityInterface.h"
+
+#if SUPPORT_D3D11
+#include <d3d11.h>
+
 #include "IUnityGraphicsD3D11.h"
 
 RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface)
@@ -48,3 +49,6 @@ RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface)
 
     return stats;
 }
+#else
+RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface) { return {}; }
+#endif

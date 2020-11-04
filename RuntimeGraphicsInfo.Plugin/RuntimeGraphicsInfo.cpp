@@ -2,7 +2,6 @@
 //
 
 #include "pch.h"
-#include "framework.h"
 #include "RuntimeGraphicsInfo.h"
 
 #include "IUnityInterface.h"
@@ -12,10 +11,12 @@ static void UNITY_INTERFACE_API
 OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType);
 
 RunTimeGraphicsMemoryInfo GetDeviceStatsD3D11(IUnityInterfaces* pUnityInterface);
+void InitMetal(IUnityInterfaces* pUnityInterfaces);
+RunTimeGraphicsMemoryInfo GetDeviceStatsMetal();
 
 
-static IUnityInterfaces* s_UnityInterfaces = NULL;
-static IUnityGraphics* s_Graphics = NULL;
+static IUnityInterfaces* s_UnityInterfaces = nullptr;
+static IUnityGraphics* s_Graphics = nullptr;
 static UnityGfxRenderer s_RendererType = UnityGfxRenderer::kUnityGfxRendererNull;
 static RunTimeGraphicsMemoryInfo s_Stats;
 
@@ -46,10 +47,13 @@ RunTimeGraphicsMemoryInfo GetStatsForDevice(UnityGfxRenderer renderer)
     {
     case UnityGfxRenderer::kUnityGfxRendererD3D11:
         return GetDeviceStatsD3D11(s_UnityInterfaces);
-        break;
+    case UnityGfxRenderer::kUnityGfxRendererMetal:
+        return GetDeviceStatsMetal();
+    case UnityGfxRenderer::kUnityGfxRendererVulkan:
+        return {};
+    default:
+        return {};
     }
-
-    return RunTimeGraphicsMemoryInfo();
 }
 
 static void UNITY_INTERFACE_API
@@ -60,6 +64,8 @@ OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType)
     case UnityGfxDeviceEventType::kUnityGfxDeviceEventInitialize:
     {
         s_RendererType = s_Graphics->GetRenderer();
+        if (s_RendererType == UnityGfxRenderer::kUnityGfxRendererMetal)
+            InitMetal(s_UnityInterfaces);
 
         s_Stats = GetStatsForDevice(s_RendererType);
 
@@ -81,7 +87,7 @@ OnGraphicsDeviceEvent(UnityGfxDeviceEventType eventType)
         //TODO: user Direct3D 9 code
         break;
     }
-    };
+    }
 }
 
 extern "C" uint64_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API GetDedicatedVideoMemory()
@@ -98,3 +104,4 @@ extern "C" uint64_t UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API GetSharedSystemMe
 {
     return s_Stats.SharedSystemMemory;
 }
+
