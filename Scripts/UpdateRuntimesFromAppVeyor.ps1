@@ -1,4 +1,4 @@
-param([string]$Token = "", [string]$AccountName = "mirasrael", [string]$BuildId = "", [switch]$Help = $false)
+param([string]$Token = "", [string]$AccountName = "", [string]$BuildId = "", [switch]$Help = $false)
 
 if ($Help)
 {

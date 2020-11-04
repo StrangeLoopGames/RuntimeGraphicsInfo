@@ -1,4 +1,4 @@
-$DefaultAccountName = "mirasrael"
+$DefaultAccountName = "theSLGjenkins"
 $ProjectSlug = "runtimegraphicsinfo"
 $RuntimesPath = "$PSScriptRoot\..\Runtime\Plugins"
 
@@ -8,7 +8,7 @@ function BuildUtils-DownloadAppVeyorRuntimes([string]$Token = "", [string]$Accou
     if ($Token -eq "")
     {
         $tokenFilePath = "$HOME/.appveyor/token"
-        if ([System.IO.File]::Exists($tokenFilePath))
+        if (Test-Path $tokenFilePath)
         {
             $Token = Get-Content -Path $tokenFilePath
         }
@@ -48,7 +48,6 @@ function BuildUtils-DownloadAppVeyorRuntimes([string]$Token = "", [string]$Accou
 
         # get job artifacts (just to see what we've got)
         $artifacts = Invoke-RestMethod -Method Get -Uri "$apiUrl/buildjobs/$jobId/artifacts" -Headers $headers
-
         foreach ($artifact in $artifacts)
         {
             $artifactFileName = $artifact.fileName
