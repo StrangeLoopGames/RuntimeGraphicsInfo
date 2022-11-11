@@ -13,7 +13,7 @@
 // The basic functionality includes:
 // 1. Category callback - provides information about category name and color.
 // 2. Profiler marker callback - provides information about new marker which is created internally or with C# API.
-// 3. Marker event callback - allows to intercept begin/end events for the particular marker.
+// 3. Marker event callback - allows to Transform_set_Position_interceptor begin/end events for the particular marker.
 // 4. Frame event callback - provides information about logical CPU frame.
 //
 //  Usage example:

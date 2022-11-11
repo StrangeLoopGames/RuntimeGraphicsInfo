@@ -14,7 +14,7 @@
 // UNITY_ANDROID - Android
 // UNITY_METRO - WSA or UWP
 // UNITY_WEBGL - WebGL
-#if _MSC_VER
+#if defined(_MSC_VER) or defined(WIN32)
     #define UNITY_WIN 1
 #elif defined(__APPLE__)
     #if TARGET_OS_TV
