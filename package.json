@@ -6,6 +6,11 @@
   "unityRelease": "0f1",
   "dependencies": {
   },
+  "author": {
+    "name": "Strange Loop Games",
+    "email": "jordan@strangeloopgames.com",
+    "url": "https://github.com/StrangeLoopGames/NativeTime"
+  },
   "description": "RuntimeGraphicsInfo",
   "keywords": [
     "RuntimeGraphicsInfo"
